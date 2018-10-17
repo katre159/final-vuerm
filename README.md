@@ -1,6 +1,6 @@
 # final-vuerm
 
-Form management solution based on checkered_flag Final Form.
+Form management solution for Vue.js based on [:checkered_flag: Final Form](https://www.npmjs.com/package/final-form).
 
 There are four components that you can import in your project:
 ```vue
