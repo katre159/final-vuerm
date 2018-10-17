@@ -2,6 +2,10 @@
   "name": "final-vuerm",
   "version": "0.1.1",
   "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KatreMetsvahi/final-vuerm.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
