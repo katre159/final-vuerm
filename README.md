@@ -25,11 +25,11 @@ import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
 ## API
 
 
-## `<Form>`
+### `<Form>`
 
-### Props
+#### Props
 
-#### `config`
+##### `config`
 
 Configuration used for creating a form instance. `onSubmit` is required. 
 See more [here](https://github.com/final-form/final-form#config).
@@ -41,7 +41,7 @@ Example:
 }
 ```
 
-#### `subscriptions`
+##### `subscriptions`
 
 Object containing the values you wish to be updated about. 
 See more [here](https://github.com/final-form/final-form#formsubscription--string-boolean-).
@@ -57,8 +57,8 @@ Example:
 }
 ```
 
-### Events
+#### Events
 
-#### `update`
+##### `update`
 
 Returns `formState` object. Read more [here](https://github.com/final-form/final-form#formstate).
