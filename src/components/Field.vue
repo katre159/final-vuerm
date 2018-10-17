@@ -5,7 +5,7 @@
     :value="fieldState.value"
     @blur="fieldState.blur"
     @focus="fieldState.focus"
-    @input="event => fieldState.change(event.target.value || '')"
+    @input="handleInput"
   >
 </template>
 
@@ -53,6 +53,15 @@ export default {
   },
   destroyed() {
     this.unregisterField();
+  },
+  methods: {
+    handleInput(event) {
+      if (this.type === 'checkbox') {
+        this.fieldState.change(event.target.checked);
+      } else {
+        this.fieldState.change(event.target.value || '');
+      }
+    }
   }
 }
 </script>

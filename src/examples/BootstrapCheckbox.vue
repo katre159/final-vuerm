@@ -1,14 +1,15 @@
 <template>
-  <div class="form-group">
-    <label :for="id">{{ label }}</label>
+  <div class="form-group form-check">
     <Field
-      :class="`form-control ${fieldState.touched && fieldState.error ? 'is-invalid' : ''}`"
+      :class="`form-check-input ${fieldState.touched && fieldState.error ? 'is-invalid' : ''}`"
       :id="id"
       :name="name"
       :subscriptions="subscriptions"
       required
+      type="checkbox"
       @update="handleFieldUpdate"
     />
+    <label class="form-check-label" :for="id">{{ label }}</label>
     <div v-if="fieldState.touched && fieldState.error" class="invalid-feedback">{{ fieldState.error }}</div>
   </div>
 </template>
@@ -17,7 +18,7 @@
 import Field from '../components/Field';
 
 export default {
-  name: 'BootstrapField',
+  name: 'BootstrapCheckbox',
   components: {
     Field
   },

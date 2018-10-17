@@ -9,6 +9,7 @@
     >
       <BootstrapField id="firstName" label="First name" name="firstName" />
       <BootstrapField id="lastName" label="Last name" name="lastName" />
+      <BootstrapCheckbox id="checkbox" label="Checkbox" name="checkbox" />
 
       <ResetButton class="btn btn-light">Reset</ResetButton>
       <SubmitButton class="btn btn-primary" style="float: right">Submit</SubmitButton>
@@ -23,6 +24,7 @@
 </template>
 
 <script>
+import BootstrapCheckbox from './BootstrapCheckbox';
 import BootstrapField from './BootstrapField';
 import Form from '../components/Form';
 import Field from '../components/Field';
@@ -32,6 +34,7 @@ import SubmitButton from '../components/SubmitButton';
 export default {
   name: 'BootstrapExample',
   components: {
+    BootstrapCheckbox,
     BootstrapField,
     Form,
     Field,
@@ -79,6 +82,10 @@ export default {
 
       if (!values.lastName) {
         errors.lastName = "Required";
+      }
+
+      if (!values.checkbox) {
+        errors.checkbox = "Required";
       }
 
       return errors;
