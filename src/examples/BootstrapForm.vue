@@ -3,10 +3,8 @@
     <h1>Form example</h1>
 
     <Form
-      :onSubmit="handleSubmit"
-      :initial-values="initialValues"
+      :config="config"
       :subscriptions="subscriptions"
-      :validate="validate"
       @update="handleFormUpdate"
     >
       <BootstrapField id="firstName" label="First name" name="firstName" />
@@ -42,10 +40,14 @@ export default {
   },
   data() {
     return {
-      formState: {},
-      initialValues: {
-        firstName: 'test'
+      config: {
+        initialValues: {
+          firstName: 'test'
+        },
+        onSubmit: this.onSubmit,
+        validate: this.validate
       },
+      formState: {},
       submittedValues: null,
       subscriptions: {
         active: true,
@@ -62,7 +64,7 @@ export default {
     };
   },
   methods: {
-    handleSubmit(submittedValues) {
+    onSubmit(submittedValues) {
       this.submittedValues = submittedValues;
     },
     handleFormUpdate(formState) {

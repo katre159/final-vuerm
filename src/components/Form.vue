@@ -10,22 +10,12 @@ import { createForm } from 'final-form'
 export default {
   name: 'Form',
   props: {
-    initialValues: {
+    config: {
       type: Object,
-      default: () => {},
-    },
-    onSubmit: {
-      type: Function,
       required: true
     },
     subscriptions: {
       type: Object,
-      default: () => ({
-        values: true
-      })
-    },
-    validate: {
-      type: Function,
       default: () => {}
     }
   },
@@ -36,11 +26,7 @@ export default {
     };
   },
   created() {
-    this.form = createForm({
-      initialValues: this.initialValues,
-      onSubmit: this.onSubmit,
-      validate: this.validate,
-    });
+    this.form = createForm(this.config);
 
     this.unsubscribe = this.form.subscribe(
       formState => {
