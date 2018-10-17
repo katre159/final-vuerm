@@ -1,41 +1,56 @@
 <template>
-  <div>
-    <form>
-      <slot />
-    </form>
-
-    <div>FormState: {{ formState }}</div>
-  </div>
+  <form>
+    <slot />
+  </form>
 </template>
 
 <script>
-  import { createForm } from 'final-form'
+import { createForm } from 'final-form'
 
-  export default {
-    name: 'Form',
-    props: {
-      onSubmit: Function
+export default {
+  name: 'Form',
+  props: {
+    initialValues: {
+      type: Object,
+      default: () => {},
     },
-    data() {
-      return {
-        form: null,
-        unsubscribe: null,
-        formState: null
-      };
+    onSubmit: {
+      type: Function,
+      required: true
     },
-    created() {
-      this.form = createForm({
-        onSubmit: this.onSubmit,
-      });
-
-      this.unsubscribe = this.form.subscribe(
-        formState => {
-          this.formState = formState;
-        },
-        {
-          values: true
-        }
-      );
+    subscriptions: {
+      type: Object,
+      default: () => ({
+        values: true
+      })
+    },
+    validate: {
+      type: Function,
+      default: () => {}
     }
-  }
+  },
+  data() {
+    return {
+      form: null,
+      unsubscribe: null
+    };
+  },
+  created() {
+    this.form = createForm({
+      initialValues: this.initialValues,
+      onSubmit: this.onSubmit,
+      validate: this.validate,
+    });
+
+    this.unsubscribe = this.form.subscribe(
+      formState => {
+        this.$emit('update', formState);
+      },
+      this.subscriptions
+    );
+  },
+  destroyed() {
+    this.unsubscribe();
+  },
+}
 </script>
