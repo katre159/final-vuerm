@@ -10,7 +10,7 @@ Form management solution for Vue.js based on [:checkered_flag: Final Form](https
 ```vue
 import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
 
-<Form :onSubmit="handleSubmit">
+<Form :config="{ onSubmit: handleSubmit }">
   <Field name="fieldName" />
   
   <ResetButton>Reset</ResetButton>
