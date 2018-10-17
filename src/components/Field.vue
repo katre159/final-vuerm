@@ -5,7 +5,7 @@
     :value="fieldState.value"
     @blur="fieldState.blur"
     @focus="fieldState.focus"
-    @input="event => fieldState.change(event.target.value || event.target.checked)"
+    @input="event => fieldState.change(event.target.value || '')"
   >
 </template>
 
@@ -15,6 +15,10 @@ import { findForm } from '../utils/form';
 export default {
   name: 'Field',
   props: {
+    config: {
+      type: Object,
+      default: () => {}
+    },
     name: {
       type: String,
       required: true
@@ -43,7 +47,8 @@ export default {
         this.fieldState = fieldState;
         this.$emit('update', fieldState);
       },
-      this.subscriptions
+      this.subscriptions,
+      this.config
     );
   },
   destroyed() {

@@ -25,14 +25,16 @@ import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
 ## API
 
 
+
+
 ### `<Form>`
 
 #### Props:
 
 ##### `config`
 
-Configuration used for creating a form instance. `onSubmit` is required. 
-See more [here](https://github.com/final-form/final-form#config).
+Configuration used for creating a form instance. `onSubmit` is required.  
+https://github.com/final-form/final-form#config
 
 Example:
 ```vue
@@ -41,10 +43,10 @@ Example:
 }
 ```
 
-##### `subscriptions`
+##### `subscriptions?`
 
-Object containing the values you wish to be updated about. 
-See more [here](https://github.com/final-form/final-form#formsubscription--string-boolean-).
+Object containing the values you wish to be updated about.  
+https://github.com/final-form/final-form#formsubscription--string-boolean-
 
 Example:
 ```vue
@@ -59,6 +61,49 @@ Example:
 
 #### Events:
 
-##### `update`
+##### `@update`
 
-Returns `formState` object. Read more [here](https://github.com/final-form/final-form#formstate).
+Returns `formState` object.  
+https://github.com/final-form/final-form#formstate
+
+
+
+
+### `<Field>`
+
+#### Props:
+
+##### `config?`
+
+Additional field configuration. This is where you can apply field-level validation.  
+https://github.com/final-form/final-form#fieldconfig
+
+##### `name`
+
+Name to register field values to. This is a required prop.  
+https://github.com/final-form/final-form#field-names
+
+##### `subscriptions?`
+
+Object containing the values you wish to be updated about.  
+https://github.com/final-form/final-form#fieldsubscription--string-boolean-
+
+Example:
+```vue
+{
+  dirty: true,
+  valid: true,
+  values: true
+}
+```
+
+##### `type?`
+
+Input type. Default is `text`.
+
+#### Events:
+
+##### @update
+
+Returns `formState` object.  
+https://github.com/final-form/final-form#fieldstate
