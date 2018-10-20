@@ -102,6 +102,11 @@ Example:
 
 Input type. Default is `text`.
 
+##### `value?`
+
+Input value. Used for `radio` input.
+Use `<Form>` `config` prop to set initial values, otherwise they will not be recorded in state.
+
 #### Events:
 
 ##### `@update`
