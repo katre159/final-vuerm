@@ -5,6 +5,21 @@ Form management solution for Vue.js based on [:checkered_flag: Final Form](https
 
 
 
+## Installation
+
+```
+yarn add final-vuerm
+```
+
+or
+
+```
+npm install final-vuerm --save
+```
+
+
+
+
 ## Simple form example
 
 ```vue
@@ -104,7 +119,7 @@ Input type. Default is `text`.
 
 ##### `value?`
 
-Input value. Used for `radio` input.
+Input value. Used for `radio` inputs.
 Use `<Form>` `config` prop to set initial values, otherwise they will not be recorded in state.
 
 #### Events:
