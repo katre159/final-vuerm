@@ -5,8 +5,10 @@
   "license": "MIT",
   "keywords": [
     "vue",
+    "vuejs",
     "form",
-    "final form"
+    "final form",
+    "validation"
   ],
   "repository": {
     "type": "git",
