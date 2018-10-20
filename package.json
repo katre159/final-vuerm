@@ -2,9 +2,15 @@
   "name": "final-vuerm",
   "version": "0.3.0",
   "main": "./src/index.js",
+  "license": "MIT",
+  "keywords": ["vue", "form", "final form"],
   "repository": {
     "type": "git",
     "url": "https://github.com/KatreMetsvahi/final-vuerm.git"
+  },
+  "author": {
+    "name": "Katre Metsvahi",
+    "email": "katre.metsvahi@gmail.com"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
