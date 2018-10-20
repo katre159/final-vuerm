@@ -7,13 +7,13 @@ Form management solution for Vue.js based on [:checkered_flag: Final Form](https
 
 ## Installation
 
-```
+```bash
 yarn add final-vuerm
 ```
 
 or
 
-```
+```bash
 npm install final-vuerm --save
 ```
 
@@ -22,7 +22,7 @@ npm install final-vuerm --save
 
 ## Simple form example
 
-```vue
+```js
 import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
 
 <Form :config="{ onSubmit: handleSubmit }">
@@ -52,7 +52,7 @@ Configuration used for creating a form instance. `onSubmit` is required.
 https://github.com/final-form/final-form#config
 
 Example:
-```vue
+```js
 {
   onSubmit: handleSubmit
 }
@@ -64,7 +64,7 @@ Object containing the values you wish to be updated about.
 https://github.com/final-form/final-form#formsubscription--string-boolean-
 
 Example:
-```vue
+```js
 {
   active: true,
   dirty: true,
@@ -105,7 +105,7 @@ Object containing the values you wish to be updated about.
 https://github.com/final-form/final-form#fieldsubscription--string-boolean-
 
 Example:
-```vue
+```js
 {
   dirty: true,
   valid: true,
