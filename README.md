@@ -114,9 +114,11 @@ https://github.com/final-form/final-form#fieldstate
 
 
 ### `<ResetButton>`
+Restores initial values.
 
 
 ---
 
 
 ### `<SubmitButton>`
+Submits the form.

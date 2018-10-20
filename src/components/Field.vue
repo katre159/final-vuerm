@@ -1,14 +1,3 @@
-<template>
-  <input
-    :name="name"
-    :type="type"
-    :value="fieldState.value"
-    @blur="fieldState.blur"
-    @focus="fieldState.focus"
-    @input="handleInput"
-  >
-</template>
-
 <script>
 import { findForm } from '../utils/form';
 
@@ -25,14 +14,16 @@ export default {
     },
     subscriptions: {
       type: Object,
-      default: () => ({
-        value: true
-      })
+      default: () => {}
     },
     type: {
       type: String,
       default: 'text'
     },
+    value: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
@@ -55,6 +46,23 @@ export default {
     this.unregisterField();
   },
   methods: {
+    getAttrs() {
+      const attrs = {
+        name: this.name,
+        type: this.type
+      };
+
+      if (this.type === 'checkbox') {
+        attrs.checked = this.fieldState.value;
+      } else if (this.type === 'radio') {
+        attrs.checked = this.fieldState.value === this.value;
+        attrs.value = this.value;
+      } else {
+        attrs.value = this.fieldState.value;
+      }
+
+      return attrs;
+    },
     handleInput(event) {
       if (this.type === 'checkbox') {
         this.fieldState.change(event.target.checked);
@@ -62,6 +70,19 @@ export default {
         this.fieldState.change(event.target.value || '');
       }
     }
+  },
+  render(createElement) {
+    return createElement(
+      'input',
+      {
+        attrs: this.getAttrs(),
+        on: {
+          blur: this.fieldState.blur,
+          focus: this.fieldState.focus,
+          input: this.handleInput
+        }
+      }
+    );
   }
 }
 </script>

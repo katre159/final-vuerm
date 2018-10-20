@@ -2,12 +2,12 @@
   <div class="form-group">
     <label :for="id">{{ label }}</label>
     <Field
-      :class="`form-control ${fieldState.touched && fieldState.error ? 'is-invalid' : ''}`"
-      :id="id"
-      :name="name"
-      :subscriptions="subscriptions"
-      required
-      @update="handleFieldUpdate"
+        :class="`form-control ${fieldState.touched && fieldState.error ? 'is-invalid' : ''}`"
+        :id="id"
+        :name="name"
+        :subscriptions="subscriptions"
+        required
+        @update="onFieldUpdate"
     />
     <div v-if="fieldState.touched && fieldState.error" class="invalid-feedback">{{ fieldState.error }}</div>
   </div>
@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {
-    handleFieldUpdate(fieldState) {
+    onFieldUpdate(fieldState) {
       this.fieldState = fieldState;
     }
   }

@@ -3,13 +3,20 @@
     <h1>Form example</h1>
 
     <Form
-      :config="config"
-      :subscriptions="subscriptions"
-      @update="handleFormUpdate"
+        :config="config"
+        :subscriptions="subscriptions"
+        @update="onFormUpdate"
     >
       <BootstrapField id="firstName" label="First name" name="firstName" />
       <BootstrapField id="lastName" label="Last name" name="lastName" />
-      <BootstrapCheckbox id="checkbox" label="Checkbox" name="checkbox" />
+
+      <BootstrapChoice id="checkbox" label="Checkbox" name="checkbox" type="checkbox" />
+
+      <fieldset>
+        <BootstrapChoice id="radio1" label="Radio1" name="radio" type="radio" value="radio1" />
+        <BootstrapChoice id="radio2" label="Radio2" name="radio" type="radio" value="radio2" />
+        <BootstrapChoice id="radio3" label="Radio3" name="radio" type="radio" value="radio3" />
+      </fieldset>
 
       <ResetButton class="btn btn-light">Reset</ResetButton>
       <SubmitButton class="btn btn-primary" style="float: right">Submit</SubmitButton>
@@ -24,7 +31,7 @@
 </template>
 
 <script>
-import BootstrapCheckbox from './BootstrapCheckbox';
+import BootstrapChoice from './BootstrapChoice';
 import BootstrapField from './BootstrapField';
 import Form from '../components/Form';
 import Field from '../components/Field';
@@ -34,7 +41,7 @@ import SubmitButton from '../components/SubmitButton';
 export default {
   name: 'BootstrapExample',
   components: {
-    BootstrapCheckbox,
+    BootstrapChoice,
     BootstrapField,
     Form,
     Field,
@@ -45,7 +52,9 @@ export default {
     return {
       config: {
         initialValues: {
-          firstName: 'test'
+          firstName: 'FirstName',
+          checkbox: true,
+          radio: 'radio2'
         },
         onSubmit: this.onSubmit,
         validate: this.validate
@@ -67,11 +76,11 @@ export default {
     };
   },
   methods: {
+    onFormUpdate(formState) {
+      this.formState = formState;
+    },
     onSubmit(submittedValues) {
       this.submittedValues = submittedValues;
-    },
-    handleFormUpdate(formState) {
-      this.formState = formState;
     },
     validate(values) {
       const errors = {};
