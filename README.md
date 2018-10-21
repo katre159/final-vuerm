@@ -135,25 +135,19 @@ https://github.com/final-form/final-form#fieldstate
 
 ### `<Select>`
 
+See props and events definitions from [`<Field>`](#field).
+
 #### Props:
 
 ##### `config?`
 
-See `<Field>`.
-
 ##### `name`
 
-See `<Field>`.
-
 ##### `subscriptions?`
-
-See `<Field>`.
 
 #### Events:
 
 ##### `@update`
-
-See `<Field>`.
 
 
 ---
