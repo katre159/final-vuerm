@@ -46,7 +46,7 @@ import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
 
 #### Props:
 
-##### `config`
+##### `config`<a name="form-config"></a>
 
 Configuration used for creating a form instance. `onSubmit` is required.  
 https://github.com/final-form/final-form#config
@@ -120,7 +120,7 @@ Input type. Default is `text`.
 ##### `value?`
 
 Input value. Used for `radio` inputs.
-Use `<Form>` `config` prop to set initial values, otherwise they will not be recorded in state.
+Use [`<Form>` `config`](#form-config) prop to set initial values, otherwise they will not be recorded in state.
 
 #### Events:
 
