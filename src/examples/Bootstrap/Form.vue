@@ -7,16 +7,9 @@
         :subscriptions="subscriptions"
         @update="onFormUpdate"
     >
-      <BootstrapField id="firstName" label="First name" name="firstName" />
-      <BootstrapField id="lastName" label="Last name" name="lastName" />
-
-      <BootstrapChoice id="checkbox" label="Checkbox" name="checkbox" type="checkbox" />
-
-      <fieldset>
-        <BootstrapChoice id="radio1" label="Radio1" name="radio" type="radio" value="radio1" />
-        <BootstrapChoice id="radio2" label="Radio2" name="radio" type="radio" value="radio2" />
-        <BootstrapChoice id="radio3" label="Radio3" name="radio" type="radio" value="radio3" />
-      </fieldset>
+      <Input />
+      <Checkbox />
+      <Radios />
 
       <ResetButton class="btn btn-light">Reset</ResetButton>
       <SubmitButton class="btn btn-primary" style="float: right">Submit</SubmitButton>
@@ -31,30 +24,31 @@
 </template>
 
 <script>
-import BootstrapChoice from './BootstrapChoice';
-import BootstrapField from './BootstrapField';
-import Form from '../components/Form';
-import Field from '../components/Field';
-import ResetButton from '../components/ResetButton';
-import SubmitButton from '../components/SubmitButton';
+import Form from '../../components/Form';
+import Field from '../../components/Field';
+import ResetButton from '../../components/ResetButton';
+import SubmitButton from '../../components/SubmitButton';
+import Checkbox from './Checkbox';
+import Input from './Input';
+import Radios from './Radios';
 
 export default {
-  name: 'BootstrapExample',
+  name: 'BootstrapForm',
   components: {
-    BootstrapChoice,
-    BootstrapField,
     Form,
     Field,
     ResetButton,
-    SubmitButton
+    SubmitButton,
+    Checkbox,
+    Input,
+    Radios
   },
   data() {
     return {
       config: {
         initialValues: {
-          firstName: 'FirstName',
-          checkbox: true,
-          radio: 'radio2'
+          exampleEmail: 'example@example.com',
+          exampleRadios: 'option1'
         },
         onSubmit: this.onSubmit,
         validate: this.validate
@@ -85,16 +79,16 @@ export default {
     validate(values) {
       const errors = {};
 
-      if (!values.firstName) {
-        errors.firstName = "Required";
+      if (!values.exampleEmail) {
+        errors.exampleEmail = "Required";
       }
 
-      if (!values.lastName) {
-        errors.lastName = "Required";
+      if (values.exampleEmail && !values.exampleEmail.match(/\w+@\w+\.\w+/g)) {
+        errors.exampleEmail = "Invalid";
       }
 
-      if (!values.checkbox) {
-        errors.checkbox = "Required";
+      if (!values.exampleCheckbox) {
+        errors.exampleCheckbox = "Required";
       }
 
       return errors;

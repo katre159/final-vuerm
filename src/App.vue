@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BootstrapForm from './examples/BootstrapForm';
+import BootstrapForm from './examples/Bootstrap/Form';
 
 export default {
   name: 'app',
