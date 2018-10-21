@@ -8,6 +8,7 @@
         @update="onFormUpdate"
     >
       <Input />
+      <Selection />
       <Checkbox />
       <Radios />
 
@@ -31,6 +32,7 @@ import SubmitButton from '../../components/SubmitButton';
 import Checkbox from './Checkbox';
 import Input from './Input';
 import Radios from './Radios';
+import Selection from './Selection';
 
 export default {
   name: 'BootstrapForm',
@@ -41,7 +43,8 @@ export default {
     SubmitButton,
     Checkbox,
     Input,
-    Radios
+    Radios,
+    Selection
   },
   data() {
     return {

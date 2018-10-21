@@ -133,6 +133,32 @@ https://github.com/final-form/final-form#fieldstate
 ---
 
 
+### `<Select>`
+
+#### Props:
+
+##### `config?`
+
+See `<Field>`.
+
+##### `name`
+
+See `<Field>`.
+
+##### `subscriptions?`
+
+See `<Field>`.
+
+#### Events:
+
+##### `@update`
+
+See `<Field>`.
+
+
+---
+
+
 ### `<ResetButton>`
 Restores initial values.
 
