@@ -23,10 +23,15 @@ npm install final-vuerm --save
 ## Simple form example
 
 ```js
-import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
+import { Form, Field, Select, ResetButton, SubmitButton } from 'final-vuerm';
 
 <Form :config="{ onSubmit: handleSubmit }">
   <Field name="fieldName" />
+  <Select name="selectName">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </Select>
   
   <ResetButton>Reset</ResetButton>
   <SubmitButton>Submit</SubmitButton>
