@@ -46,7 +46,7 @@ import { Form, Field, ResetButton, SubmitButton } from 'final-vuerm';
 
 #### Props:
 
-##### `config`<a name="form-config"></a>
+##### <a name="form-config"></a>`config`
 
 Configuration used for creating a form instance. `onSubmit` is required.  
 https://github.com/final-form/final-form#config
